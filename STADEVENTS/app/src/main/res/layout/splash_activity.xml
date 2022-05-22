@@ -4,6 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splashscreen.SplashActivity">
+    android:background="#B78FC4"
+    tools:context=".login.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/arena"
+        android:layout_width="265dp"
+        android:layout_height="265dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arena" />
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STADEVENTS"
+        android:textSize="25dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arena" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
