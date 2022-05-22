@@ -25,4 +25,10 @@
         android:name="com.example.stadevents.announcements.AnnouncementFragment"
         android:label="fragment_announcement"
         tools:layout="@layout/announcement_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.stadevents.search.SearchFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/settings_fragment" />
+
 </navigation>
