@@ -15,4 +15,9 @@
         android:name="com.example.stadevents.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/search_fragment" />
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="com.example.stadevents.ticket.TicketFragment"
+        android:label="fragment_ticket"
+        tools:layout="@layout/ticket_fragment" />
 </navigation>

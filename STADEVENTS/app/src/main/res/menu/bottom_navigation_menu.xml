@@ -11,4 +11,9 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/menu_item_search" />
+    <item
+        android:id="@+id/ticketFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_ticket_24"
+        android:title="@string/menu_item_ticket"/>
 </menu>
