@@ -20,4 +20,9 @@
         android:name="com.example.stadevents.ticket.TicketFragment"
         android:label="fragment_ticket"
         tools:layout="@layout/ticket_fragment" />
+    <fragment
+        android:id="@+id/announcementFragment"
+        android:name="com.example.stadevents.announcements.AnnouncementFragment"
+        android:label="fragment_announcement"
+        tools:layout="@layout/announcement_fragment" />
 </navigation>

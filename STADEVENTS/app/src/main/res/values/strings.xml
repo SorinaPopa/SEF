@@ -4,4 +4,6 @@
     <string name="menu_item_home">Home</string>
     <string name="menu_item_search">Search</string>
     <string name="menu_item_ticket">Ticket</string>
+    <string name="menu_item_announcement">Announcement</string>
+
 </resources>

@@ -16,4 +16,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_ticket_24"
         android:title="@string/menu_item_ticket"/>
+    <item
+        android:id="@+id/announcementFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_announcement_24"
+        android:title="@string/menu_item_announcement"/>
+
 </menu>
