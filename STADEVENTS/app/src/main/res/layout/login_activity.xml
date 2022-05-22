@@ -40,7 +40,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="@={loginViewModel.name}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,7 +60,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:text="@={loginViewModel.password}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,6 +72,7 @@
             android:layout_marginTop="15dp"
             android:backgroundTint="#FFFFFF"
             android:text="Sign in"
+            android:onClick="@{()->loginViewModel.onClickLoginButton()}"
             android:textAllCaps="false"
             android:textColor="#FF77DD"
             app:layout_constraintEnd_toEndOf="parent"
