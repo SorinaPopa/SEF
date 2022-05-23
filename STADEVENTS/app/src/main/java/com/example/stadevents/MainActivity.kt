@@ -36,11 +36,10 @@ class MainActivity : AppCompatActivity() {
         setupNavigationDrawer()
         setupAppBarConfig()
         layoutManager = LinearLayoutManager(this)
-        
-//        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-//        recyclerView.layoutManager = layoutManager
-//        adapter = RecyclerAdapter()
-//        recyclerView.adapter = adapter
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = layoutManager
+        adapter = EventListAdapter()
+        recyclerView.adapter = adapter
     }
 
     private fun setupBottomNavigation() {
