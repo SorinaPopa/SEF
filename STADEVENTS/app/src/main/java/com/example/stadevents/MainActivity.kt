@@ -19,9 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModels()
 
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<EventListAdapter.ViewHolder>? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -35,11 +32,6 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigation()
         setupNavigationDrawer()
         setupAppBarConfig()
-        layoutManager = LinearLayoutManager(this)
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = layoutManager
-        adapter = EventListAdapter()
-        recyclerView.adapter = adapter
     }
 
     private fun setupBottomNavigation() {
