@@ -27,7 +27,7 @@
         tools:layout="@layout/announcement_fragment" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.stadevents.search.SearchFragment"
+        android:name="com.example.stadevents.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/settings_fragment" />
 
