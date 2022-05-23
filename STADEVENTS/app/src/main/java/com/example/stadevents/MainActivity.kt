@@ -8,14 +8,19 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.stadevents.databinding.ActivityMainBinding
-import com.example.stadevents.home.HomeViewModel
+import com.example.stadevents.home.event.EventListAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfig: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModels()
+
+    private var layoutManager: RecyclerView.LayoutManager? = null
+    private var adapter: RecyclerView.Adapter<EventListAdapter.ViewHolder>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +35,12 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigation()
         setupNavigationDrawer()
         setupAppBarConfig()
+        layoutManager = LinearLayoutManager(this)
+        
+//        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+//        recyclerView.layoutManager = layoutManager
+//        adapter = RecyclerAdapter()
+//        recyclerView.adapter = adapter
     }
 
     private fun setupBottomNavigation() {
