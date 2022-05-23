@@ -1,10 +1,14 @@
 package com.example.stadevents.settings
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.FrameLayout
 import com.example.stadevents.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,8 +38,16 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.settings_fragment, container, false)
+        val frameLayout: FrameLayout =
+            inflater.inflate(R.layout.settings_fragment, container, false) as FrameLayout
+        val aboutUsButton: Button = frameLayout.findViewById(R.id.aboutUs)
+        aboutUsButton.setOnClickListener() {
+            val uri: Uri =
+                Uri.parse("https://docs.google.com/document/d/1y3zjEaym6cxBmqID8pS_jAN6VqgonNBtmdlxi_vhgXU/edit?usp=sharing")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+        }
+        return frameLayout
     }
 
     companion object {
