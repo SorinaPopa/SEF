@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.stadevents.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_addEventDialogFragment"
+            app:destination="@id/addEventDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.stadevents.search.SearchFragment"
@@ -30,5 +34,13 @@
         android:name="com.example.stadevents.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/settings_fragment" />
+    <dialog
+        android:id="@+id/addEventDialogFragment"
+        android:name="com.example.stadevents.home.addevent.AddEventDialogFragment"
+        android:label="AddEventDialogFragment" >
+        <action
+            android:id="@+id/action_addEventDialogFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </dialog>
 
 </navigation>

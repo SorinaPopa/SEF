@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.stadevents.R
 import com.example.stadevents.databinding.HomeFragmentBinding
 
@@ -27,5 +28,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         homeViewModel.initList()
+        subscribeToObservers()
+    }
+
+    private fun subscribeToObservers() {
+        homeViewModel.fabClicked.observe(viewLifecycleOwner) { isClicked ->
+            if (isClicked) {
+                findNavController().navigate(R.id.action_homeFragment_to_addEventDialogFragment)
+                homeViewModel.fabClicked.value = false
+            }
+
+        }
     }
 }
