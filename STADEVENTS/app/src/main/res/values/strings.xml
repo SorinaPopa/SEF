@@ -13,5 +13,4 @@
     <string name="paying_details_text">Here are the details of the paying method: Card number 1234 **** **** 9876</string>
     <string name="security">Security</string>
     <string name="security_details">You can change you password here.</string>
-
 </resources>

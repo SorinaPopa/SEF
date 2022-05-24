@@ -12,10 +12,11 @@ class HomeViewModel : ViewModel() {
     fun initList() {
         var list = emptyList<Event>()
         for (i in 1..5) {
-            list = list + Event(i,"Title", "Subtitle", R.drawable.ic_football)
+            list = list + Event(i, "Title", "Subtitle", R.drawable.ic_football)
         }
-        eventList.value=list
+        eventList.value = list
     }
+
     fun onFABClicked() {
         fabClicked.value = true
     }

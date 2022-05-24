@@ -1,9 +1,10 @@
-package com.example.stadevents
+package com.example.stadevents.splashscreen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.stadevents.R
 import com.example.stadevents.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -12,9 +13,9 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.splash_activity)
         supportActionBar?.hide()
         Handler().postDelayed({
-            val intent= Intent(this@SplashActivity, LoginActivity::class.java)
+            val intent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
-        },2000)
+        }, 2000)
     }
 }

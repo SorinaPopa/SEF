@@ -8,10 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.stadevents.databinding.ActivityMainBinding
-import com.example.stadevents.home.event.EventListAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController

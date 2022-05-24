@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.stadevents.R
 import com.example.stadevents.databinding.AddEventDialogBinding
 
-class AddEventDialogFragment: DialogFragment() {
+class AddEventDialogFragment : DialogFragment() {
     private lateinit var binding: AddEventDialogBinding
     private val addEventViewModel: AddEventViewModel by viewModels()
 
@@ -47,10 +47,11 @@ class AddEventDialogFragment: DialogFragment() {
         }
     }
 
-    private fun updateDialogFeatures(){
+    private fun updateDialogFeatures() {
         requireDialog().window?.setLayout(
             ConstraintLayout.LayoutParams.MATCH_PARENT,
-            ConstraintLayout.LayoutParams.MATCH_PARENT)
+            ConstraintLayout.LayoutParams.MATCH_PARENT
+        )
     }
 
 

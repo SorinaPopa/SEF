@@ -1,9 +1,5 @@
 package com.example.stadevents.home.event
 
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,8 +16,8 @@ class EventViewHolder(private var binding: CardLayoutBinding) :
         setOnBuyClickListener(event)
     }
 
-    private fun setOnBuyClickListener(event: Event){
-        binding.buyButton.setOnClickListener{
+    private fun setOnBuyClickListener(event: Event) {
+        binding.buyButton.setOnClickListener {
             Toast.makeText(
                 itemView.context,
                 "${event.title} has been bought!",

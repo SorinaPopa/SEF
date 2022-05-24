@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.stadevents.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/home_fragment" >
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_homeFragment_to_addEventDialogFragment"
             app:destination="@id/addEventDialogFragment" />
@@ -37,7 +37,7 @@
     <dialog
         android:id="@+id/addEventDialogFragment"
         android:name="com.example.stadevents.home.addevent.AddEventDialogFragment"
-        android:label="AddEventDialogFragment" >
+        android:label="AddEventDialogFragment">
         <action
             android:id="@+id/action_addEventDialogFragment_to_homeFragment"
             app:destination="@id/homeFragment" />

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.stadevents.databinding.CardLayoutBinding
 
 
-class EventListAdapter: ListAdapter<Event, EventViewHolder>(DiffCallback) {
+class EventListAdapter : ListAdapter<Event, EventViewHolder>(DiffCallback) {
     companion object DiffCallback : DiffUtil.ItemCallback<Event>() {
         override fun areItemsTheSame(oldItem: Event, newItem: Event): Boolean {
             return oldItem.id == newItem.id

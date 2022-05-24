@@ -23,7 +23,7 @@ class SettingsFragment : Fragment() {
 
         //payingDetails Button
         val payingDetails: Button = frameLayout.findViewById(R.id.payingDetails)
-        payingDetails.setOnClickListener(){
+        payingDetails.setOnClickListener() {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(resources.getString(R.string.paying_details))
                 .setMessage(resources.getString(R.string.paying_details_text))
@@ -35,7 +35,7 @@ class SettingsFragment : Fragment() {
 
         //payingDetails Button
         val security: Button = frameLayout.findViewById(R.id.security)
-        security.setOnClickListener(){
+        security.setOnClickListener() {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(resources.getString(R.string.security))
                 .setMessage(resources.getString(R.string.security_details))
@@ -47,7 +47,7 @@ class SettingsFragment : Fragment() {
 
         //help Button
         val help: Button = frameLayout.findViewById(R.id.help)
-        help.setOnClickListener(){
+        help.setOnClickListener() {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(resources.getString(R.string.help))
                 .setMessage(resources.getString(R.string.help_message))
@@ -83,8 +83,8 @@ class SettingsFragment : Fragment() {
 
         //SignOut Button
         val signOutButton: Button = frameLayout.findViewById(R.id.signOut)
-        signOutButton.setOnClickListener(){
-            val intent =Intent(activity, LoginActivity::class.java)
+        signOutButton.setOnClickListener() {
+            val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }
