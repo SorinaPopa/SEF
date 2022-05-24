@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
 import com.example.stadevents.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingsFragment : Fragment() {
     override fun onCreateView(
@@ -18,6 +19,18 @@ class SettingsFragment : Fragment() {
     ): View {
         val frameLayout: FrameLayout =
             inflater.inflate(R.layout.settings_fragment, container, false) as FrameLayout
+
+        //help Button
+        val help: Button = frameLayout.findViewById(R.id.help)
+        help.setOnClickListener(){
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(resources.getString(R.string.help))
+                .setMessage(resources.getString(R.string.help_message))
+                .setNegativeButton(resources.getString(R.string.close)) { dialog, which ->
+                    // Respond to negative button press
+                }
+                .show()
+        }
 
         //aboutUs Button
         val aboutUsButton: Button = frameLayout.findViewById(R.id.aboutUs)
