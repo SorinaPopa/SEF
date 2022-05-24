@@ -33,8 +33,17 @@ class SettingsFragment : Fragment() {
                 .show()
         }
 
-
-
+        //payingDetails Button
+        val security: Button = frameLayout.findViewById(R.id.security)
+        security.setOnClickListener(){
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(resources.getString(R.string.security))
+                .setMessage(resources.getString(R.string.security_details))
+                .setNegativeButton(resources.getString(R.string.close)) { dialog, which ->
+                    // Respond to negative button press
+                }
+                .show()
+        }
 
         //help Button
         val help: Button = frameLayout.findViewById(R.id.help)
