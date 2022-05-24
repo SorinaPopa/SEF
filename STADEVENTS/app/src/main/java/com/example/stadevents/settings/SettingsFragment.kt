@@ -21,6 +21,21 @@ class SettingsFragment : Fragment() {
         val frameLayout: FrameLayout =
             inflater.inflate(R.layout.settings_fragment, container, false) as FrameLayout
 
+        //payingDetails Button
+        val payingDetails: Button = frameLayout.findViewById(R.id.payingDetails)
+        payingDetails.setOnClickListener(){
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(resources.getString(R.string.paying_details))
+                .setMessage(resources.getString(R.string.paying_details_text))
+                .setNegativeButton(resources.getString(R.string.close)) { dialog, which ->
+                    // Respond to negative button press
+                }
+                .show()
+        }
+
+
+
+
         //help Button
         val help: Button = frameLayout.findViewById(R.id.help)
         help.setOnClickListener(){

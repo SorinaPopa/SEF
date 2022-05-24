@@ -9,6 +9,7 @@
     <string name="help">Help</string>
     <string name="close">Close</string>
     <string name="help_message">Contact the developer of this app for more information.</string>
-
+    <string name="paying_details">Paying Details</string>
+    <string name="paying_details_text">Here are the details of the paying method: Card number 1234 **** **** 9876</string>
 
 </resources>
