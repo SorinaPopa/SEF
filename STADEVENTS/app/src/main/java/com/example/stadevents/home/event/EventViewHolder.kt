@@ -24,7 +24,7 @@ class EventViewHolder(private var binding: CardLayoutBinding) :
         binding.buyButton.setOnClickListener{
             Toast.makeText(
                 itemView.context,
-                "you clicked on ${event.title}",
+                "${event.title} has been bought!",
                 Toast.LENGTH_LONG
             ).show()
         }
