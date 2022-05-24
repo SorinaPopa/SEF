@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
 import com.example.stadevents.R
+import com.example.stadevents.login.LoginActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingsFragment : Fragment() {
@@ -54,6 +55,14 @@ class SettingsFragment : Fragment() {
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
+        }
+
+        //SignOut Button
+        val signOutButton: Button = frameLayout.findViewById(R.id.signOut)
+        signOutButton.setOnClickListener(){
+            val intent =Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
         }
 
         return frameLayout
