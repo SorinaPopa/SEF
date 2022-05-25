@@ -5,13 +5,16 @@
 
     <data>
 
+        <variable
+            name="registerViewModel"
+            type="com.example.stadevents.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".register.RegisterActivity"
-        android:background="#B78FC4">
+        android:background="#B78FC4"
+        tools:context=".register.RegisterActivity">
 
         <ImageView
             android:id="@+id/football_ball"
@@ -99,7 +102,6 @@
                 android:layout_height="wrap_content"
                 android:hint="validation code" />
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

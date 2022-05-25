@@ -110,12 +110,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/ForgotPassword"
+            android:id="@+id/register_here"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="Don't have an account? Register here!"
             android:textAllCaps="false"
+            android:onClick="@{()->loginViewModel.onClickRegisterHereButton()}"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

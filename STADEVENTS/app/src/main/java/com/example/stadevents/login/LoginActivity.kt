@@ -11,6 +11,7 @@ import androidx.activity.viewModels
 import com.example.stadevents.MainActivity
 import com.example.stadevents.R
 import com.example.stadevents.databinding.LoginActivityBinding
+import com.example.stadevents.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: LoginActivityBinding
@@ -31,7 +32,20 @@ class LoginActivity : AppCompatActivity() {
             getString(R.string.shared_preference_organiser), Context.MODE_PRIVATE
         )
         subscribeToObserver()
+        registerHereObserver()
+    }
 
+    private fun registerHereObserver() {
+        loginViewModel.onRegisterHereClicked.observe(this) { value ->
+            if (value) {
+                val registerHere: Button = findViewById(R.id.register_here)
+                registerHere.setOnClickListener {
+                    val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                    startActivity(intent)
+                    //finish()
+                }
+            }
+        }
     }
 
     private fun subscribeToObserver() {
