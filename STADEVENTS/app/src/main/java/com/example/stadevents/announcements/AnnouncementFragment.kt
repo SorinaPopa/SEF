@@ -5,15 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.stadevents.R
+import com.example.stadevents.databinding.AnnouncementFragmentBinding
+import com.example.stadevents.home.HomeViewModel
 
 
 class AnnouncementFragment : Fragment() {
+    private lateinit var binding: AnnouncementFragmentBinding
+    private val announcementViewModel: AnnouncementViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.announcement_fragment, container, false)
+    ): View {
+        binding= AnnouncementFragmentBinding.inflate(inflater,container,false)
+        binding.lifecycleOwner=viewLifecycleOwner
+        binding.announcementViewModel=announcementViewModel
+        //announcementViewModel.addAnnouncement(args.announcement)
+        return binding.root
     }
 }
