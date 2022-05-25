@@ -23,8 +23,6 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: RegisterActivityBinding
     private val registerViewModel: RegisterViewModel by viewModels()
 
-    lateinit var sharedPreferences: SharedPreferences
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,18 +33,19 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.hide()
         subscribeToObserver()
         getNewUserData()
-        saveNewUserData()
+        //saveNewUserData()
     }
 
-    private fun saveNewUserData() {
-        val editor = sharedPreferences.edit()
-        editor.putString(IS_ORGANISER, registerViewModel.name.value)
-        editor.putString(IS_ORGANISER, registerViewModel.username.value)
-        editor.putString(IS_ORGANISER, registerViewModel.email.value)
-        editor.putString(IS_ORGANISER, registerViewModel.password.value) //encript
-        editor.putString(IS_ORGANISER, registerViewModel.validationCode.value)
-        editor.apply()
-    }
+//    private fun saveNewUserData() {
+//        var sharedPreferences: SharedPreferences
+//        val editor = sharedPreferences.edit()
+//        editor.putString(IS_ORGANISER, registerViewModel.name.value)
+//        editor.putString(IS_ORGANISER, registerViewModel.username.value)
+//        editor.putString(IS_ORGANISER, registerViewModel.email.value)
+//        editor.putString(IS_ORGANISER, registerViewModel.password.value) //encript
+//        editor.putString(IS_ORGANISER, registerViewModel.validationCode.value)
+//        editor.apply()
+//    }
 
     private fun getNewUserData() {
         //get event list from shared preferences
