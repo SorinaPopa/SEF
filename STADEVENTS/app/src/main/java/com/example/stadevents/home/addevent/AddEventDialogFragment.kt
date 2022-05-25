@@ -35,7 +35,8 @@ class AddEventDialogFragment : DialogFragment() {
     private fun subscribeToObservers() {
         addEventViewModel.onClickSavedButton.observe(viewLifecycleOwner) { isClicked ->
             if (isClicked) {
-                findNavController().navigate(R.id.action_addEventDialogFragment_to_homeFragment)
+                val action = AddEventDialogFragmentDirections.actionAddEventDialogToHomeFragment(addEventViewModel.getEvent())
+                findNavController().navigate(action)
                 addEventViewModel.onClickSavedButton.value = false
             }
         }
@@ -53,6 +54,5 @@ class AddEventDialogFragment : DialogFragment() {
             ConstraintLayout.LayoutParams.MATCH_PARENT
         )
     }
-
 
 }

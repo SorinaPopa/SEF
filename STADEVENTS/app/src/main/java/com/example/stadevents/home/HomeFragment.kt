@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.stadevents.R
 import com.example.stadevents.databinding.HomeFragmentBinding
 
@@ -14,6 +15,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: HomeFragmentBinding
     private val homeViewModel: HomeViewModel by viewModels()
+    private val args by navArgs<HomeFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
