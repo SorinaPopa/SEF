@@ -8,14 +8,14 @@ import com.example.stadevents.login.business.UserMapper
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
     val name = MutableLiveData("")
     val password = MutableLiveData("")
+    val validationCode = MutableLiveData("")
     val onLoginButtonClicked = MutableLiveData(false)
     val onOrganiserChecked = MutableLiveData(false)
-    val organiserCode = MutableLiveData("")
+    private val userList = UserMapper.getUsersList()
 
     fun isUserValid(): Boolean {
-        val userList = UserMapper.getUsersList()
         for (user in userList) {
-            if (user.name == name.value && user.password == password.value) {
+            if (user.name == name.value && user.password == password.value && user.validationCode == validationCode.value) {
                 return true
             }
         }
@@ -23,7 +23,11 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun isOrganiserCodeValid(): Boolean {
-        //return organiserCode in list
+        for (user in userList) {
+            if (user.validationCode == validationCode.value && user.validationCode != "") {
+                return true
+            }
+        }
         return false
     }
 
