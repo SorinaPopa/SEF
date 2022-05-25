@@ -33,7 +33,11 @@
         android:id="@+id/announcementFragment"
         android:name="com.example.stadevents.announcements.AnnouncementFragment"
         android:label="fragment_announcement"
-        tools:layout="@layout/announcement_fragment" />
+        tools:layout="@layout/announcement_fragment" >
+        <action
+            android:id="@+id/action_announcementFragment_to_addAnnouncementDialogFragment"
+            app:destination="@id/addAnnouncementDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.stadevents.settings.SettingsFragment"
@@ -47,6 +51,15 @@
         <action
             android:id="@+id/action_addEventDialog_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/addAnnouncementDialogFragment"
+        android:name="com.example.stadevents.announcements.addannouncement.AddAnnouncementDialogFragment"
+        android:label="AddAnnouncementDialogFragment"
+        tools:layout="@layout/add_announcement_dialog">
+        <action
+            android:id="@+id/action_addAnnouncementDialogFragment_to_announcementFragment"
+            app:destination="@id/announcementFragment" />
     </dialog>
 
 </navigation>
