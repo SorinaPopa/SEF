@@ -1,6 +1,8 @@
 package com.example.stadevents.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -9,10 +11,14 @@ import androidx.activity.viewModels
 import com.example.stadevents.MainActivity
 import com.example.stadevents.R
 import com.example.stadevents.databinding.LoginActivityBinding
+import com.example.stadevents.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: LoginActivityBinding
     private val loginViewModel: LoginViewModel by viewModels()
+
+    lateinit var sharedPreferences: SharedPreferences
+    var isOrganiser = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,20 +28,52 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        loginViewModel.onLoginButtonClicked.observe(this) { value ->
+        sharedPreferences = getSharedPreferences(
+            getString(R.string.shared_preference_organiser), Context.MODE_PRIVATE
+        )
+        subscribeToObserver()
+        registerHereObserver()
+    }
+
+    private fun registerHereObserver() {
+        loginViewModel.onRegisterHereClicked.observe(this) { value ->
             if (value) {
-                if (loginViewModel.login()) {
-                    //Toast.makeText(this, "Valid", Toast.LENGTH_LONG).show()
-                    val signIn: Button = findViewById(R.id.SignIn)
-                    signIn.setOnClickListener {
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                } else {
-                    Toast.makeText(this, "Invalid", Toast.LENGTH_LONG).show()
-                }
+                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }
+
+    private fun subscribeToObserver() {
+        loginViewModel.onLoginButtonClicked.observe(this) { value ->
+            if (value) {
+                processLogin()
+            }
+        }
+    }
+
+    private fun processLogin() {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean(IS_ORGANISER, loginViewModel.isOrganiserCodeValid())
+        editor.apply()
+        if (!loginViewModel.isOrganiserCodeValid() && loginViewModel.onOrganiserChecked.value == true) {
+            Toast.makeText(this, "Invalid organiser code", Toast.LENGTH_LONG).show()
+        } else if (!loginViewModel.isUserValid()) {
+            Toast.makeText(this, "Invalid name or password", Toast.LENGTH_LONG).show()
+        } else {
+            signInValidation()
+        }
+    }
+
+    private fun signInValidation() {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+    }
+
+    companion object {
+        const val IS_ORGANISER = "is.organiser"
+    }
+
 }

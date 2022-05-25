@@ -9,7 +9,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.example.stadevents.databinding.ActivityMainBinding
-import com.example.stadevents.home.HomeViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
