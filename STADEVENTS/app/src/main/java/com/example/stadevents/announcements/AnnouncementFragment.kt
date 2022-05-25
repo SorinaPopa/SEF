@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.stadevents.R
 import com.example.stadevents.databinding.AnnouncementFragmentBinding
 import com.example.stadevents.home.HomeViewModel
@@ -26,7 +27,17 @@ class AnnouncementFragment : Fragment() {
         binding.announcementViewModel=announcementViewModel
         //announcementViewModel.addAnnouncement(args.announcement)
         getUserRole()
+        subscribeToObservers()
         return binding.root
+    }
+
+    private fun subscribeToObservers() {
+        announcementViewModel.fabAnnouncementClicked.observe(viewLifecycleOwner) { isClicked ->
+            if (isClicked) {
+                findNavController().navigate(R.id.action_announcementFragment_to_addAnnouncementDialogFragment)
+                announcementViewModel.fabAnnouncementClicked.value = false
+            }
+        }
     }
 
     private fun getUserRole() {
