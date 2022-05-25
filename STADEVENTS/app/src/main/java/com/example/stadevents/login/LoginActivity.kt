@@ -38,12 +38,9 @@ class LoginActivity : AppCompatActivity() {
     private fun registerHereObserver() {
         loginViewModel.onRegisterHereClicked.observe(this) { value ->
             if (value) {
-                val registerHere: Button = findViewById(R.id.register_here)
-                registerHere.setOnClickListener {
-                    val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
+                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }
@@ -70,12 +67,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signInValidation() {
-        val button: Button = findViewById(R.id.SignIn)
-        button.setOnClickListener {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }
     }
 
     companion object {

@@ -29,13 +29,9 @@ class RegisterActivity : AppCompatActivity() {
     private fun subscribeToObserver() {
         registerViewModel.onRegisterClicked.observe(this) { value ->
             if (value) {
-                val registerHere: Button = findViewById(R.id.register)
-                registerHere.setOnClickListener {
                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
-                }
-
             }
         }
     }
