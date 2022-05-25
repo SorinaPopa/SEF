@@ -27,7 +27,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="event name" />
+                android:hint="event name"
+                android:text="@={addEventViewModel.editTextTitle}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +42,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="event location" />
+                android:hint="event location"
+                android:text="@={addEventViewModel.editTextSubtitle}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
@@ -66,6 +68,7 @@
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{()->addEventViewModel.onSaveButtonClicked()}"
             android:text="Save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/cancelButton"
@@ -75,7 +78,9 @@
             android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{()->addEventViewModel.onCancelButtonClicked()}"
             android:text="Cancel"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/saveButton" />

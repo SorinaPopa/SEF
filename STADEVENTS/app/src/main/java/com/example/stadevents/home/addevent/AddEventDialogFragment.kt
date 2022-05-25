@@ -42,7 +42,7 @@ class AddEventDialogFragment : DialogFragment() {
         }
         addEventViewModel.onClickCancelButton.observe(viewLifecycleOwner) { isClicked ->
             if (isClicked) {
-                findNavController().navigate(R.id.action_addEventDialogFragment_to_homeFragment)
+                findNavController().navigate(R.id.action_addEventDialog_to_homeFragment)
                 addEventViewModel.onClickCancelButton.value = false
             }
         }

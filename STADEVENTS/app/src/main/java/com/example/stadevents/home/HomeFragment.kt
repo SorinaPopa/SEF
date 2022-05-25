@@ -24,22 +24,32 @@ class HomeFragment : Fragment() {
         binding = HomeFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.homeViewModel = homeViewModel
-
+        getEventList()
+        homeViewModel.addEvent(args.event)
         return binding.root
     }
 
+    private fun getEventList() {
+        //get event list from shared preferences
+        //and save it to HomeViewModel.eventList
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        homeViewModel.initList()
         subscribeToObservers()
     }
 
     private fun subscribeToObservers() {
         homeViewModel.fabClicked.observe(viewLifecycleOwner) { isClicked ->
             if (isClicked) {
-                findNavController().navigate(R.id.action_homeFragment_to_addEventDialogFragment)
+                findNavController().navigate(R.id.action_homeFragment_to_addEventDialog)
                 homeViewModel.fabClicked.value = false
             }
 
         }
     }
+
+    private fun saveEventList() {
+        //save event list to shared preferences
+    }
+
 }

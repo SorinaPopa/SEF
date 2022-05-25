@@ -2,7 +2,7 @@ package com.example.stadevents.home.event
 
 import java.io.Serializable
 
-class Event(
+data class Event(
     val id: Int,
     val title: String,
     val subtitle: String,

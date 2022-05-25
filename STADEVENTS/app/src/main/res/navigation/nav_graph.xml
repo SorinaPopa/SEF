@@ -11,8 +11,13 @@
         android:label="fragment_home"
         tools:layout="@layout/home_fragment">
         <action
-            android:id="@+id/action_homeFragment_to_addEventDialogFragment"
-            app:destination="@id/addEventDialogFragment" />
+            android:id="@+id/action_homeFragment_to_addEventDialog"
+            app:destination="@id/addEventDialog" />
+        <argument
+            android:name="event"
+            android:defaultValue="@null"
+            app:argType="com.example.stadevents.home.event.Event"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -35,11 +40,12 @@
         android:label="fragment_settings"
         tools:layout="@layout/settings_fragment" />
     <dialog
-        android:id="@+id/addEventDialogFragment"
+        android:id="@+id/addEventDialog"
         android:name="com.example.stadevents.home.addevent.AddEventDialogFragment"
-        android:label="AddEventDialogFragment">
+        android:label="AddEventDialog"
+        tools:layout="@layout/add_event_dialog">
         <action
-            android:id="@+id/action_addEventDialogFragment_to_homeFragment"
+            android:id="@+id/action_addEventDialog_to_homeFragment"
             app:destination="@id/homeFragment" />
     </dialog>
 
