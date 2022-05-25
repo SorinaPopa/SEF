@@ -1,6 +1,8 @@
 package com.example.stadevents.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,6 +16,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: LoginActivityBinding
     private val loginViewModel: LoginViewModel by viewModels()
 
+    lateinit var sharedPreferencesOrganiser: SharedPreferences
+    var isOrganiser = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = LoginActivityBinding.inflate(layoutInflater)
@@ -22,20 +27,60 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        sharedPreferencesOrganiser = getSharedPreferences(
+            getString(R.string.shared_preference_organiser), Context.MODE_PRIVATE
+        )
+
+        loginViewModel.onOrganiserChecked.observe(this) { value ->
+            if (value) {
+                //validationCodeTextView is visible
+            } else {
+                //validationCodeTextView is invisible
+            }
+            isOrganiser = sharedPreferencesOrganiser.getBoolean("CHECKBOX", false)
+
+        }
+
         loginViewModel.onLoginButtonClicked.observe(this) { value ->
             if (value) {
-                if (loginViewModel.login()) {
-                    //Toast.makeText(this, "Valid", Toast.LENGTH_LONG).show()
-                    val signIn: Button = findViewById(R.id.SignIn)
-                    signIn.setOnClickListener {
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
+                if (loginViewModel.loginOrganiser()) {
+                    //isOrganiser = true
+                    signInValidation()
                 } else {
-                    Toast.makeText(this, "Invalid", Toast.LENGTH_LONG).show()
+                    if (loginViewModel.loginCustomer()) {
+                        //isOrganiser = false
+                        signInValidation()
+                    } else {
+                        Toast.makeText(this, "Invalid", Toast.LENGTH_LONG).show()
+                    }
                 }
+
             }
         }
+
+//        loginViewModel.onLoginButtonClicked.observe(this) { value ->
+//            if (value) {
+//                if (loginViewModel.loginCustomer()) {
+//                    val button: Button = findViewById(R.id.SignIn)
+//                    button.setOnClickListener {
+//                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    }
+//                } else {
+//                    Toast.makeText(this, "Invalid", Toast.LENGTH_LONG).show()
+//                }
+//
+//            }
     }
+
+    private fun signInValidation() {
+        val button: Button = findViewById(R.id.SignIn)
+        button.setOnClickListener {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
 }
