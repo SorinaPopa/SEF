@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="loginViewModel"
             type="com.example.stadevents.login.LoginViewModel" />
@@ -20,11 +22,10 @@
             android:id="@+id/football_ball"
             android:layout_width="200dp"
             android:layout_height="187dp"
-            android:layout_marginBottom="300dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/Username"
             app:srcCompat="@drawable/ic_arena" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +42,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={loginViewModel.name}"/>
+                android:text="@={loginViewModel.name}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
-                android:text="@={loginViewModel.password}"/>
+                android:text="@={loginViewModel.password}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,25 +72,55 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:backgroundTint="#FFFFFF"
-            android:text="Sign in"
             android:onClick="@{()->loginViewModel.onClickLoginButton()}"
+            android:text="Sign in"
             android:textAllCaps="false"
-            android:textColor="#FF77DD"
+            android:textColor="#B78FC4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/validation_code" />
+
+        <CheckBox
+            android:id="@+id/organiser_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:onCheckedChanged="@{(view,isChecked)->loginViewModel.onClickOrganiserCheckBox(isChecked)}"
+            android:text="Are you an organiser?"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Password" />
 
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/validation_code"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{loginViewModel.onOrganiserChecked? View.VISIBLE:View.GONE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/organiser_check_box">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="validation code"
+                android:text="@={loginViewModel.validationCode}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
-            android:id="@+id/ForgotPassword"
+            android:id="@+id/register_here"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:text="Are you an organiser?"
+            android:text="Don't have an account? Register here!"
             android:textAllCaps="false"
+            android:onClick="@{()->loginViewModel.onClickRegisterHereButton()}"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/SignIn" />
+            app:layout_constraintTop_toBottomOf="@+id/validation_code" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

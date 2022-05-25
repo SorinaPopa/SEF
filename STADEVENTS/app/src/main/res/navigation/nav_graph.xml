@@ -9,7 +9,16 @@
         android:id="@+id/homeFragment"
         android:name="com.example.stadevents.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_addEventDialog"
+            app:destination="@id/addEventDialog" />
+        <argument
+            android:name="event"
+            android:defaultValue="@null"
+            app:argType="com.example.stadevents.home.event.Event"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.stadevents.search.SearchFragment"
@@ -24,11 +33,33 @@
         android:id="@+id/announcementFragment"
         android:name="com.example.stadevents.announcements.AnnouncementFragment"
         android:label="fragment_announcement"
-        tools:layout="@layout/announcement_fragment" />
+        tools:layout="@layout/announcement_fragment" >
+        <action
+            android:id="@+id/action_announcementFragment_to_addAnnouncementDialogFragment"
+            app:destination="@id/addAnnouncementDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.stadevents.search.SearchFragment"
+        android:name="com.example.stadevents.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/settings_fragment" />
+    <dialog
+        android:id="@+id/addEventDialog"
+        android:name="com.example.stadevents.home.addevent.AddEventDialogFragment"
+        android:label="AddEventDialog"
+        tools:layout="@layout/add_event_dialog">
+        <action
+            android:id="@+id/action_addEventDialog_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/addAnnouncementDialogFragment"
+        android:name="com.example.stadevents.announcements.addannouncement.AddAnnouncementDialogFragment"
+        android:label="AddAnnouncementDialogFragment"
+        tools:layout="@layout/add_announcement_dialog">
+        <action
+            android:id="@+id/action_addAnnouncementDialogFragment_to_announcementFragment"
+            app:destination="@id/announcementFragment" />
+    </dialog>
 
 </navigation>
