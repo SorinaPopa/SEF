@@ -1,5 +1,6 @@
 package com.example.stadevents.announcements
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.fragment.app.viewModels
 import com.example.stadevents.R
 import com.example.stadevents.databinding.AnnouncementFragmentBinding
 import com.example.stadevents.home.HomeViewModel
+import com.example.stadevents.login.LoginActivity
 
 
 class AnnouncementFragment : Fragment() {
@@ -23,6 +25,15 @@ class AnnouncementFragment : Fragment() {
         binding.lifecycleOwner=viewLifecycleOwner
         binding.announcementViewModel=announcementViewModel
         //announcementViewModel.addAnnouncement(args.announcement)
+        getUserRole()
         return binding.root
+    }
+
+    private fun getUserRole() {
+        val sharedPreferences = requireActivity().getSharedPreferences(
+            getString(R.string.shared_preference_organiser), Context.MODE_PRIVATE
+        )
+        val isOrganiser = sharedPreferences.getBoolean(LoginActivity.IS_ORGANISER, false)
+        announcementViewModel.isOrganiser.value = isOrganiser
     }
 }
