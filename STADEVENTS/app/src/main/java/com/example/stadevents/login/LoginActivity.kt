@@ -48,9 +48,9 @@ class LoginActivity : AppCompatActivity() {
         editor.apply()
         if (!loginViewModel.isOrganiserCodeValid() && loginViewModel.onOrganiserChecked.value == true) {
             Toast.makeText(this, "Invalid organiser code", Toast.LENGTH_LONG).show()
-        } else if(!loginViewModel.isUserValid()){
-            Toast.makeText(this, "Invalid organiser code", Toast.LENGTH_LONG).show()
-        }else{
+        } else if (!loginViewModel.isUserValid()) {
+            Toast.makeText(this, "Invalid name or password", Toast.LENGTH_LONG).show()
+        } else {
             signInValidation()
         }
     }
@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val IS_ORGANISER = "is.organiser"
+        const val IS_ORGANISER = "is.organiser"
     }
 
 }

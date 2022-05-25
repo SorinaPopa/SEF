@@ -8,6 +8,7 @@ import com.example.stadevents.home.event.Event
 class HomeViewModel : ViewModel() {
     val eventList = MutableLiveData<List<Event>>(emptyList())
     val fabClicked = MutableLiveData(false)
+    val isOrganiser = MutableLiveData(false)
 
 //    fun initList() {
 //        var list = emptyList<Event>()

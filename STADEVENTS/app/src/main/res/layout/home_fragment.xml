@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="homeViewModel"
             type="com.example.stadevents.home.HomeViewModel" />
@@ -43,6 +45,7 @@
                     android:layout_margin="16dp"
                     android:onClick="@{()->homeViewModel.onFABClicked()}"
                     android:src="@drawable/ic_baseline_add_24"
+                    android:visibility="@{homeViewModel.isOrganiser()? View.VISIBLE:View.GONE}"
                     tools:ignore="RtlHardcoded">
 
                 </com.google.android.material.floatingactionbutton.FloatingActionButton>

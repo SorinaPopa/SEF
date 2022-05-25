@@ -24,7 +24,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     fun isOrganiserCodeValid(): Boolean {
         //return organiserCode in list
-        return true
+        return false
     }
 
     fun onClickLoginButton() {
