@@ -11,6 +11,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     val validationCode = MutableLiveData("")
     val onLoginButtonClicked = MutableLiveData(false)
     val onOrganiserChecked = MutableLiveData(false)
+    val onRegisterHereClicked = MutableLiveData(false)
     private val userList = UserMapper.getUsersList()
 
     fun isUserValid(): Boolean {
@@ -37,5 +38,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     fun onClickOrganiserCheckBox(isChecked: Boolean) {
         onOrganiserChecked.value = isChecked
+    }
+
+    fun onClickRegisterHereButton() {
+        onRegisterHereClicked.value = true
     }
 }

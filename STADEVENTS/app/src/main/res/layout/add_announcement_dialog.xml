@@ -6,9 +6,8 @@
     <data>
 
         <variable
-            name="addEventViewModel"
-            type="com.example.stadevents.home.addevent.AddEventViewModel" />
-
+            name="addAnnouncementViewModel"
+            type="com.example.stadevents.announcements.AnnouncementViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +20,7 @@
             android:id="@+id/title_of_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Event Details"
+            android:text="Announcement Details"
             android:textSize="30dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -31,7 +30,7 @@
             android:id="@+id/title_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Introduce the name of the event"
+            android:text="Introduce the title of the announcement"
             android:textSize="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -49,17 +48,15 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="event name"
-                android:text="@={addEventViewModel.editTextTitle}" />
+                android:hint="announcement title" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/event_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Introduce the location of the event"
+            android:text="Introduce the announcement text"
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@id/attachPicture"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/eventName" />
@@ -75,46 +72,27 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="event location"
-                android:text="@={addEventViewModel.editTextSubtitle}" />
+                android:hint="announcement text" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageView
-            android:id="@+id/attachPicture"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_attach_file_24"
-            app:layout_constraintBottom_toTopOf="@+id/cancelButton"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/eventLocation" />
-
-        <ImageView
-            android:id="@+id/shareLocation"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_add_location_24"
-            app:layout_constraintBottom_toTopOf="@id/saveButton"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/eventLocation" />
 
         <Button
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->addEventViewModel.onSaveButtonClicked()}"
             android:text="Save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/cancelButton"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
 
         <Button
             android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->addEventViewModel.onCancelButtonClicked()}"
             android:text="Cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/saveButton" />
+            app:layout_constraintRight_toLeftOf="@id/saveButton"
+            app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
