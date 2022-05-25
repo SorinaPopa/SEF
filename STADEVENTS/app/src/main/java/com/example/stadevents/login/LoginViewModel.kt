@@ -9,8 +9,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     val name = MutableLiveData("")
     val password = MutableLiveData("")
     val onLoginButtonClicked = MutableLiveData(false)
+    val onOrganiserChecked = MutableLiveData(false)
+    val organiserCode = MutableLiveData("")
 
-    fun login(): Boolean {
+    fun isUserValid(): Boolean {
         val userList = UserMapper.getUsersList()
         for (user in userList) {
             if (user.name == name.value && user.password == password.value) {
@@ -20,7 +22,16 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         return false
     }
 
+    fun isOrganiserCodeValid(): Boolean {
+        //return organiserCode in list
+        return true
+    }
+
     fun onClickLoginButton() {
         onLoginButtonClicked.value = true
+    }
+
+    fun onClickOrganiserCheckBox(isChecked: Boolean) {
+        onOrganiserChecked.value = isChecked
     }
 }

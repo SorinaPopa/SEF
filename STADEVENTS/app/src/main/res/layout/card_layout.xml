@@ -10,9 +10,8 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:cardBackgroundColor="#8ae0ff"
-        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#F0E7D8"
+        app:cardCornerRadius="7dp"
         app:cardElevation="3dp"
         app:contentPadding="4dp">
 
@@ -20,7 +19,8 @@
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp">
+            android:padding="20dp"
+            android:background="#7CC6FE">
 
             <ImageView
                 android:id="@+id/eventImage"
